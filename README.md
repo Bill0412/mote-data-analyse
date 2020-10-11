@@ -1,5 +1,5 @@
-
-## Transform the JSON files to db
+# Data Engineering Pipeline
+## Transform the JSON files to MySQL database
 ```console
 $ python transform.py
 ```
