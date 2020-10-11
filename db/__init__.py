@@ -1,5 +1,7 @@
 from .dao.populate import populate_db
 
+from .dao.api import get_outlet_contains_brand_dict
+
 from .dao.outlet_dao import insert_outlet
 from .dao.outlet_dao import get_outlet_by_id_outlet
 from .dao.outlet_dao import get_outlet_by_source_dict
