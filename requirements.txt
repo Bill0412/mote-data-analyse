@@ -1,3 +1,4 @@
 peewee
 pycountry
 pymysql
+flask-restful
