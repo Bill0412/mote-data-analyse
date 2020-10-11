@@ -3,7 +3,10 @@ from db import insert_outlet, get_outlet_by_id_outlet
 from db import insert_user, get_user_by_name
 from db import insert_review
 from db import insert_menu
+from db import db_proxy
+from peewee import MySQLDatabase
 import datetime
+import argparse
 import pycountry
 import json
 
@@ -111,6 +114,14 @@ def convert_date(date) -> str:
 
 if __name__ == '__main__':
     from config import mysql_config
+
+    parser = argparse.ArgumentParser(description='Mote Transform Parser')
+    parser.add_argument('--host', dest='host', type=str, default='127.0.0.1', help='host for db')
+    args = parser.parse_args()
+
+    mysql_config.update({'host': args.host})
+
+    db_proxy.initialize(MySQLDatabase(**mysql_config))
 
     populate_db(mysql_config, drop_exist=True)
     transform_outlet()

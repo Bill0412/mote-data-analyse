@@ -1,6 +1,10 @@
 from flask import Flask, jsonify
 from flask_restful import Resource, Api, reqparse
 from db import get_outlet_by_source_dict, get_outlet_contains_brand_dict, get_menu_above_price_dict, insert_outlet
+from db import db_proxy
+from config import mysql_config
+from peewee import MySQLDatabase
+import argparse
 
 app = Flask(__name__)
 api = Api(app)
@@ -59,5 +63,13 @@ api.add_resource(GetOutletContainsBrand, '/outlets/brand/contains/<string:brand>
 api.add_resource(GetMenuAbovePrice, '/menus/price/above/<string:price>')
 api.add_resource(PostOutlet, '/outlets')
 
+
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Mote Transform Parser')
+    parser.add_argument('--host', dest='host', type=str, default='127.0.0.1', help='host for db')
+    args = parser.parse_args()
+
+    mysql_config.update({'host': args.host})
+
+    db_proxy.initialize(MySQLDatabase(**mysql_config))
     app.run(debug=True)

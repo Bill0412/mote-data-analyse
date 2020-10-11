@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ~/data/mote/mysql1:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: TF0mW3e5pQlMewbQLsQfbSUbEq
+      MYSQL_DATABASE: mote
+
+  api:
+    depends_on:
+      - db
+    build: .
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      API_HOST: db

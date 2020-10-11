@@ -13,3 +13,5 @@ from .dao.review_dao import insert_review
 
 from .dao.menu_dao import insert_menu
 from .dao.menu_dao import get_menu_above_price_dict
+
+from .entity.base_do import db_proxy

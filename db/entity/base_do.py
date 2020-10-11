@@ -1,13 +1,7 @@
-from peewee import Model, MySQLDatabase
+from peewee import Model, Proxy
 
-from config import mysql_config
-
-try:
-    db = MySQLDatabase(**mysql_config)
-except Exception:
-    print('[ERROR] db config not found')
-
+db_proxy = Proxy()
 
 class BaseDO(Model):
     class Meta:
-        database = db
+        database = db_proxy
