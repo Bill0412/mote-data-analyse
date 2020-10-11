@@ -1,4 +1,13 @@
 # Data Engineering Pipeline
+## Run as a Docker
+```console
+$ docker-compose up
+```
+To run it as a daemon,
+```console
+$ docker-compose up -d
+```
+
 ## Transform the JSON files to MySQL database
 ```console
 $ python transform.py
