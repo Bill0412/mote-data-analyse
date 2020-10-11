@@ -1,4 +1,14 @@
-### Test
+## Run the Program
+### Transform the JSON files to db
+```console
+$ python transform.py
+```
+
+### Start the RESTful API server
+TODO
+
+## Unittest
+### Configure the test database
 Create a MySQL database locally
 ```console
 $ mkdir ~/data && mkdir ~/data/mote
@@ -12,3 +22,6 @@ $ mysql -u root -p # enter the password here
 $ CREATE DATABASE mote_test;
 $ exit
 ```
+
+### Run the unittests
+TODO
