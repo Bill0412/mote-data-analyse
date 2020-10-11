@@ -1,5 +1,5 @@
 from .base_do import BaseDO
-from peewee import BigAutoField, CharField, IntegerField, DateTimeField
+from peewee import BigAutoField, CharField, IntegerField, DateTimeField, FloatField
 
 
 class OutletDO(BaseDO):
@@ -13,6 +13,7 @@ class OutletDO(BaseDO):
     address = CharField()
     country = CharField(max_length=2)
     phone = CharField()
+    rating = FloatField()
     reviews_nr = IntegerField()
     gmt_create = DateTimeField()
     gmt_modified = DateTimeField()

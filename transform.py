@@ -29,6 +29,7 @@ def transform_outlet():
             'address': outlet['address'],
             'country': name_to_alpha_2(outlet['country']),
             'phone': outlet['phone'],
+            'rating': outlet['rating'],
             'reviews_nr': outlet['reviews_nr']
         }
 
@@ -41,6 +42,7 @@ def transform_outlet():
             'source': UBEREATS_SOURCE,
             'address': outlet['address'],
             'country': outlet['country'],
+            'rating': -1,
             'phone': '',
             'reviews_nr': outlet['reviews_nr']
         }
