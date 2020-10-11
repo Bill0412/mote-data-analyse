@@ -1,4 +1,5 @@
-peewee
-pycountry
+peewee~=3.13.3
+pycountry~=20.7.3
 pymysql
 flask-restful
+flask~=1.1.2
