@@ -8,7 +8,7 @@ $ docker run --name mote -v ~/data/mote/mysql:/var/lib/mysql -p 3306:3306 -p 330
 Enter the MySQL database and create the test database
 ```console
 $ docker exec -it mote /bin/bash
-$ mysql -u root -p # enther the password here
+$ mysql -u root -p # enter the password here
 $ CREATE DATABASE mote_test;
 $ exit
 ```
