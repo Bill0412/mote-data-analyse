@@ -1,11 +1,34 @@
-## Run the Program
-### Transform the JSON files to db
+
+## Transform the JSON files to db
 ```console
 $ python transform.py
 ```
 
-### Start the RESTful API server
-TODO
+## Run the RESTful API server
+```console
+$ python api.py
+```
+
+### `GET` outlets who sell certain brands
+Following returns a list of outlets that has coca inside its brand name.
+```console
+$ curl http://localhost:5000/outlets/brand/contains/coca
+```
+
+### `GET` a list of outlets
+```console
+$ curl http://localhost:5000/outlets/source/ubereats
+```
+ 
+### `GET` menu items above a certain price
+```console
+$ curl http://localhost:5000/menus/price/above/40
+```
+
+### `POST` a new outlet
+```console
+$ curl http://localhost:5000/outlets -d "id_outlet=1029912390213" -d "name=hello_world" -d "source=ubereats" -d "address=unknown" -d "country=CN" -d "phone=+852 123 1234" -d "reviews_nr=123" -X POST -v
+```
 
 ## Unittest
 ### Configure the test database
@@ -24,4 +47,4 @@ $ exit
 ```
 
 ### Run the unittests
-TODO
+pass
