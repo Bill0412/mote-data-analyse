@@ -3,6 +3,8 @@ import argparse
 from db import populate_db
 from transform import transform_menu, transform_outlet, transform_user, transform_review
 from api import app
+from db import db_proxy
+from peewee import MySQLDatabase
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Mote Transform Parser')
@@ -10,6 +12,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     mysql_config.update({'host': args.host})
+
+    db_proxy.initialize(MySQLDatabase(**mysql_config))
 
     populate_db(mysql_config, drop_exist=True)
     transform_outlet()
